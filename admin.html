@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - ระบบจองร้านอาหาร</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<header>
+    <h1>🍽️ ระบบจัดการร้านอาหาร</h1>
+
+    <nav>
+        <a href="index.html">หน้าจองโต๊ะ</a>
+        <a href="admin.html">จัดการการจอง</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="booking-box">
+
+        <h2>📋 รายการจองโต๊ะ</h2>
+
+        <div id="bookingList">
+            ยังไม่มีรายการจอง
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 Restaurant Booking System</p>
+</footer>
+
+<script>
+
+const bookingList = document.getElementById("bookingList");
+
+const booking = JSON.parse(localStorage.getItem("booking"));
+
+if (booking) {
+
+    bookingList.innerHTML = `
+        <div style="padding:20px; border:1px solid #ddd; border-radius:10px;">
+
+            <p><strong>👤 ชื่อ:</strong> ${booking.name}</p>
+
+            <p><strong>📞 เบอร์โทร:</strong> ${booking.phone}</p>
+
+            <p><strong>📅 วันที่:</strong> ${booking.date}</p>
+
+            <p><strong>🕐 เวลา:</strong> ${booking.time}</p>
+
+            <p><strong>👥 จำนวน:</strong> ${booking.people} คน</p>
+
+            <p><strong>📝 หมายเหตุ:</strong> ${booking.note || "-"}</p>
+
+            <p>
+                <strong>สถานะ:</strong>
+                <span style="color:green;">รอยืนยัน</span>
+            </p>
+
+            <button onclick="confirmBooking()">
+                ✅ ยืนยันการจอง
+            </button>
+
+            <button onclick="cancelBooking()"
+                    style="background:#c0392b;">
+                ❌ ยกเลิกการจอง
+            </button>
+
+        </div>
+    `;
+
+}
+
+function confirmBooking() {
+
+    alert("ยืนยันการจองเรียบร้อยแล้ว");
+
+}
+
+function cancelBooking() {
+
+    localStorage.removeItem("booking");
+
+    alert("ยกเลิกการจองแล้ว");
+
+    location.reload();
+
+}
+
+</script>
+
+</body>
+</html>
