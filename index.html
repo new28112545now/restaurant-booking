@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจองร้านอาหาร</title>
 
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🍽️ Restaurant Booking</h1>
+        <nav>
+            <a href="index.html">หน้าหลัก</a>
+            <a href="login.html">เข้าสู่ระบบ</a>
+            <a href="admin.html">ผู้ดูแลระบบ</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <h2>จองโต๊ะร้านอาหาร</h2>
+            <p>จองโต๊ะล่วงหน้าได้ง่ายและรวดเร็ว</p>
+        </section>
+
+        <section class="booking-box">
+
+            <h2>📅 แบบฟอร์มจองโต๊ะ</h2>
+
+            <form id="bookingForm">
+
+                <label>ชื่อผู้จอง</label>
+                <input type="text" id="name" placeholder="กรอกชื่อของคุณ" required>
+
+                <label>เบอร์โทรศัพท์</label>
+                <input type="tel" id="phone" placeholder="08xxxxxxxx" required>
+
+                <label>วันที่ต้องการจอง</label>
+                <input type="date" id="date" required>
+
+                <label>เวลา</label>
+                <select id="time" required>
+                    <option value="">-- เลือกเวลา --</option>
+                    <option>11:00</option>
+                    <option>12:00</option>
+                    <option>13:00</option>
+                    <option>17:00</option>
+                    <option>18:00</option>
+                    <option>19:00</option>
+                    <option>20:00</option>
+                </select>
+
+                <label>จำนวนคน</label>
+                <input type="number" id="people" min="1" max="20" placeholder="จำนวนคน" required>
+
+                <label>หมายเหตุ</label>
+                <textarea id="note" placeholder="เช่น ต้องการโต๊ะริมหน้าต่าง"></textarea>
+
+                <button type="submit">
+                    จองโต๊ะ
+                </button>
+
+            </form>
+
+            <div id="result"></div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Restaurant Booking System</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
